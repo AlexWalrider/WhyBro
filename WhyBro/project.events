@@ -1,0 +1,255 @@
+a:1:{s:5:"form1";a:41:{s:3:"num";a:1:{s:9:"onexecute";s:258:"$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['posnumx'];
+$y = $info['pos']['posnumy'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);
+$WshShell = new COM("WScript.Shell");
+$WshShell->SendKeys("^{в}");";}s:5:"field";a:1:{s:9:"onexecute";s:187:"$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['fieldx'];
+$y = $info['pos']['fieldy'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:6:"pastan";a:1:{s:9:"onexecute";s:173:"//$number = c("numberedit")->text;
+$list = c("listBox1")->items->selected;
+clipboard_settext("$list");
+$WshShell = new COM("WScript.Shell");
+$WshShell->SendKeys("^{м}");";}s:6:"pastat";a:1:{s:9:"onexecute";s:349:"$txt = c("maintext")->text;
+$link = c("label7")->text;
+if (c("checkbox1")->checked == true)
+{
+$txt2 = "$txt - $link";
+clipboard_settext("$txt2");
+$WshShell = new COM("WScript.Shell");
+$WshShell->SendKeys("^{м}");
+}
+else
+{
+$txt2 = "$txt";
+clipboard_settext("$txt2");
+$WshShell = new COM("WScript.Shell");
+$WshShell->SendKeys("^{м}");
+}";}s:5:"addnf";a:1:{s:9:"onexecute";s:189:"$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['addnumx'];
+$y = $info['pos']['addnumy'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:5:"addnb";a:1:{s:9:"onexecute";s:187:"$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['addnbx'];
+$y = $info['pos']['addnby'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:4:"send";a:1:{s:9:"onexecute";s:134:"$x = c("edit4") ->text;;
+$y = c("edit5") ->text;;
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:8:"maintext";N;s:7:"button3";a:1:{s:11:"onmousedown";s:377:"c("listBox1")->itemIndex = 0;
+с("label3")->text = "0";
+$number = с("edit3")->text;
+$kav = '"';
+$fullhead = "Viber $number";
+$fullkav = "$kav$fullhead$kav";
+$info = parse_ini_file('config.ini', true);
+$pathprog = $info['main']['pathprog'];
+Run("$pathprog");
+Sleep(2);
+exec ("window.dll $fullkav 800 620 63 0");
+c("click")->enable = true;
+c("timer2")->enable = false;";}s:7:"imgtake";a:1:{s:9:"onexecute";s:191:"$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['imgtakex'];
+$y = $info['pos']['imgtakey'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:6:"imgchs";a:1:{s:9:"onexecute";s:306:"$kavus = '"';
+$otfayl = "Отправить файл";
+$flac = "$kavus$otfayl$kavus";
+exec ("window.dll $flac 100 100 65 0");
+$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['imgchsx'];
+$y = $info['pos']['imgchsy'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:5:"imgop";a:1:{s:9:"onexecute";s:187:"$info = parse_ini_file('config.ini', true);
+$x = $info['pos']['imgopx'];
+$y = $info['pos']['imgopy'];
+setCursorPos($x,$y);
+Mouse_Event(2, $x, $y, 0, 0);
+Mouse_Event(4, $x, $y, 0, 0);";}s:8:"--fmedit";a:1:{s:6:"onshow";s:1361:"$info = parse_ini_file('config.ini', true);
+$numbers = file_get_contents ("data\\numbers.txt");
+//$out = file_get_contents ("data\\output.txt");
+c("listBox2")->text = $numbers;
+c("edit3")->text = $info['main']['number'];
+c("edit4")->text = $info['main']['posix'];
+c("edit5")->text = $info['main']['posiy'];
+c("maintext")->text = $info['main']['message'];
+c("edit1")->text = $info['main']['statsrv'];
+c("edit2")->text = $info['main']['linkid'];
+$checklink = $info['main']['addlnk'];
+$checkfilter = $info['main']['filter'];
+if ($checklink !=0)
+{
+c("checkbox1")->checked = true;
+}
+if ($checkfilter !=0)
+{
+c("timer1")->enable = true;
+}
+HotKey::add(false, VK_F6, 'stop');
+HotKey::add(false, VK_F7, 'start');
+HotKey::add(false, VK_F10, 'stopos');
+$numarch = file_get_contents ("data\\numarch.txt");
+c("memo2")->text = $numarch;
+/*
+//////////grid//////////
+$posnumx = $info ['pos']['posnumx'];
+$posnumy = $info ['pos']['posnumy'];
+c("grid1")->cells(1,1,"$posnumx");
+c("grid1")->cells(1,2,"$posnumy");
+c("grid1")->cells(2,1,"");
+c("grid1")->cells(2,2,"");
+c("grid1")->cells(3,1,"");
+c("grid1")->cells(3,2,"");
+c("grid1")->cells(4,1,"");
+c("grid1")->cells(4,2,"");
+c("grid1")->cells(5,1,"");
+c("grid1")->cells(5,2,"");
+c("grid1")->cells(6,1,"");
+c("grid1")->cells(6,2,"");
+c("grid1")->cells(7,1,"");
+c("grid1")->cells(7,2,"");*/";}s:12:"clickstarter";a:1:{s:9:"onexecute";s:184:"//номеронабиратель
+
+//на поле номера
+
+//вставить номер
+
+//открыть контакт
+
+//аттач
+
+//выбрать изобр
+
+//открыть изобр
+
+//на поле текста
+
+//вставить текст
+
+//отпраывить";}s:5:"click";a:1:{s:7:"ontimer";s:554:"$count = c("listBox1")->items->count;
+$numc = c("label3")->text;
+$file = "data\\sent.txt";
+$stat = c("edit1")->text;
+$lnk = c("edit2")->text;
+///////////////////////////////
+if ($numc != $count)
+{
+c("listBox1")->itemIndex = $numc;
+$list = c("listBox1")->items->selected;
+c("label7")->text = "$stat/O$numc$lnk";
+clickstarter();
+$forlist = "\n$list";
+file_put_contents($file, $forlist, FILE_APPEND);
+}
+else
+{
+c("click")->enable = false;
+c("timer2")->enable = true;
+echo ("Send complete");
+}
+$numc = $numc+1;
+c("label3")->text = $numc;";}s:7:"button1";a:1:{s:11:"onmousedown";s:64:"$slash = '\\';
+$nums = "numbers.txt";
+exec("data$slash$nums");";}s:7:"button2";a:1:{s:11:"onmousedown";s:23:"exec("data\\sent.txt");";}s:6:"label4";N;s:6:"label5";N;s:6:"label6";N;s:5:"edit1";N;s:5:"edit2";N;s:4:"stop";a:1:{s:9:"onexecute";s:60:"c("click")->enable = false;
+echo ("Рассылка остановлена!");";}s:5:"start";a:1:{s:9:"onexecute";s:26:"c("click")->enable = true;";}s:6:"label8";N;s:5:"memo2";N;s:5:"memo3";N;s:6:"timer1";a:1:{s:7:"ontimer";s:846:"
+$count = c("listBox2")->items->count;
+$numc = c("label3")->text;
+$file = c("memo2")->text;
+$file2 = c("memo3")->text;
+///////////////////////////////
+if ($numc != $count)
+{
+c("listBox2")->itemIndex = $numc;
+$list = c("listBox2")->items->selected;
+$list2 = str_replace ("+", "", $list);
+if(preg_match("($list2)", $file))
+{
+}
+else
+{
+$memo = c("memo3")->text;
+$fmem = "$memo\n$list";
+////////////////
+if(preg_match("($list2)", $file2))
+{
+}
+else
+{
+if ($memo == "")
+{
+c("memo3")->text = $list;
+c("listBox1")->inText = "$list2";
+}
+else
+{
+c("memo3")->text = $fmem;
+c("listBox1")->inText = "$list2";
+}
+}
+////////////////
+}
+$numc = $numc+1;
+c("label3")->text = $numc;
+}
+else
+{
+c("timer1")->enable = false;
+$countz = c("listBox1")->items->count;
+c("label10")->text = "$countz";
+}
+/////////////////////////////";}s:8:"button10";a:1:{s:11:"onmousedown";s:180:"$txt = c("memo3")->text;
+$txt = str_replace ("+", "", $txt);
+$txt = "\n$txt";
+$fp = fopen("data\\numarch.txt", "a+");
+fwrite($fp, $txt);
+fclose($fp);
+MessageBox("DONE!", "");";}s:8:"button11";a:1:{s:11:"onmousedown";s:62:"clipboard_settext(c("memo3")->text);
+MessageBox("DONE!", "");";}s:8:"button12";a:1:{s:11:"onmousedown";s:26:"exec("data\\numarch.txt");";}s:9:"checkbox1";N;s:6:"timer2";a:1:{s:7:"ontimer";s:119:"$x = cursor_pos_x();
+$y = cursor_pos_y();
+
+c("statusBar1")->simpleText = "Position: x = " . $x . "," . " y = " . $y;";}s:8:"labelcur";N;s:7:"label12";N;s:7:"button4";a:1:{s:11:"onmousedown";s:521:"$message = "Вставьте текст в поле для ввода сообщения. Наведите курсор на позицию кнопки 'Отправить' и затем нажмите кнопку 'F10'";
+$number = с("edit3")->text;
+$kav = '"';
+$fullhead = "Viber $number";
+$fullkav = "$kav$fullhead$kav";
+
+
+
+
+if (messageBox("$message", "Подтверждение", MB_YESNO) == idYes)
+{
+    Run("C:\\Users\\Marketolog\\AppData\\Local\\Viber\\Viber.exe");
+    Sleep(2);
+    exec ("window.dll $fullkav 800 620 63 0");
+    c("timer3")->enable = true;
+}
+
+else
+{
+        echo "Отменено.";
+}";}s:6:"timer3";a:1:{s:7:"ontimer";s:172:"$x = cursor_pos_x();
+$y = cursor_pos_y();
+
+//c("labelcur")->caption = "Position: x = " . $x . "," . " y = " . $y;
+
+c("edit4") ->text = "$x";
+c("edit5") ->text = "$y";";}s:6:"stopos";a:1:{s:9:"onexecute";s:58:"c("timer3")->enable = false;
+echo ("Позиция сохранена!");";}s:7:"button5";a:1:{s:11:"onmousedown";s:18:"Run("config.ini");";}s:7:"button6";a:1:{s:11:"onmousedown";s:54:"c("listBox1")->text = "";
+c("timer1")->enable = true;";}s:7:"button7";a:1:{s:11:"onmousedown";s:336:"$numbers = file_get_contents ("data\\numbers.txt");
+//$out = file_get_contents ("data\\output.txt");
+c("listBox2")->text = $numbers;
+//echo $grid;
+$numarch = file_get_contents ("data\\numarch.txt");
+c("memo2")->text = $numarch;
+c("memo3")->text = "";
+c("label3")->text = "0";
+c("listBox1")->text = "";
+c("label10")->text = "0";";}}}
