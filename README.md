@@ -28,6 +28,6 @@ Viber mass sender
 ПО распространяется под лицензией GPL v3<br>
 
 # Contact
-E-mail: alex@awmail.biz<br>
+E-mail: alex@awgroup.ltd<br>
 This project is a personal development, please respect its philosophy and don’t use it for evil purposes!<br>
 WhyBro is under GNU GPL v3.<br>
